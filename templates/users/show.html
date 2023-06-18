@@ -18,6 +18,17 @@
             <button class="btn btn-primary btn-sm" formaction = "/users/{{ user.id }}/edit" formmethod="GET">Edit</button>
             <button class="btn btn-danger btn-sm" formaction = "/users/{{ user.id }}/delete" formmethod="POST">Delete</button>
         </form>
+        <h2 class="mt-4">POSTS</h2>
+        <ul>
+            {% for post in user.posts %}
+            <li>
+                <a href="/posts/{{post.id}}">{{ post.title }}</a>
+                <small>{{ post.friendly_date }}</small>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <p><a href="/users/{{ user.id }}/posts/new" class="btn btn-primary">Add Post</a></p>
     </div>
 </div>
 
